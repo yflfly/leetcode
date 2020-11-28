@@ -27,13 +27,32 @@ s.length <= 40000
 '''
 
 
+# 动态规划+哈希
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         dic = {}
         res = tmp = 0
         for j in range(len(s)):
-            i = dic.get(s[j], -1) # 获取索引 i
-            dic[s[j]] = j # 更新哈希表
-            tmp = tmp + 1 if tmp < j - i else j - i # dp[j - 1] -> dp[j]
-            res = max(res, tmp) # max(dp[j - 1], dp[j])
+            i = dic.get(s[j], -1)  # 获取索引 i
+            dic[s[j]] = j  # 更新哈希表
+            tmp = tmp + 1 if tmp < j - i else j - i  # dp[j - 1] -> dp[j]
+            res = max(res, tmp)  # max(dp[j - 1], dp[j])
         return res
+
+
+# 滑动窗口
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        max_len = float('-inf')
+        start = 0
+        mark = set()
+        for end in range(len(s)):
+            while start <= end and s[end] in mark:
+                mark.remove(s[start])
+                start += 1
+            max_len = max(max_len, end - start + 1)
+            mark.add(s[end])
+        if max_len == float('-inf'):
+            return 0
+        else:
+            return max_len
