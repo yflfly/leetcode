@@ -49,3 +49,37 @@ class Solution:
                     right = j + nums[i]
                 dp[i][j] = dp[i - 1][left] + dp[i - 1][right]
         return dp[-1][total + S]
+
+class Solution2:
+    def findTargetSumWays(self, nums, S) -> int:
+        """
+        （1）思路：动态规划
+                我们用 dp[i][j] 表示用数组中的前 i 个元素，组成和为 j 的方案数。考虑第 i 个数 nums[i]，它可以被添
+            加 + 或 - ，那么从dp[i-1][m] —> dp[i][j] 可以在 dp[i-1][m]的基础上加上 nums[i] 或者减去 nums[i]，
+            因此状态转移方程如下：
+                dp[i][j] = dp[i-1][j-nums[i]] + dp[i-1][j + nums[i]]
+        （2）复杂度：
+            - 时间复杂度：O（N * sums） 其中 N 是数组 nums 的长度
+            - 空间复杂度：O（N * sums）
+        """
+        import collections
+        # 获取数组长度和数组和的最大值
+        array_length, max_sum = len(nums), sum(nums)
+        # 定义和初始化dp数组
+        # 因为该数组所能组成的值的区间为[min_sum, max_sum]，即一共有 max_sum - min_sum + 1 种值
+        # 但是为了方便，可以直接定义为dict的形式，这样就可以一直增加key而不需要去计算dp数组第二维的长度，同时不用管下标为
+        # 负数的情况，直接将下标转化为dict中的key
+        # 这样不存在的key，也会默认是0
+        dp = [collections.defaultdict(int) for _ in range(len(nums))]
+        # 之所以dp[0][-nums[0]] 使用 += 1 而不是直接赋值1，是为了处理nums[0]就等于0的情况
+        # 如果nums[0]， 那么dp[0][0] = 2 而不是 1
+        dp[0][nums[0]] = 1
+        dp[0][-nums[0]] += 1
+        # 遍历nums数组，更行dp数组的值
+        for i in range(1, array_length):
+            for j in range(-max_sum, max_sum+1):
+                # 状态转移方程
+                # 当dp[i][j]不等于的0的时候，代表至少存在一种方法得到j值
+                dp[i][j] = dp[i - 1].get(j + nums[i], 0) + dp[i - 1].get(j - nums[i], 0)
+        return dp[-1][S]
+
