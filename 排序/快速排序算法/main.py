@@ -29,3 +29,8 @@ if __name__ == "__main__":
     end = time.time()
     print(a)
     print('Running time: %s Seconds' % (end - start))
+
+'''
+快速排序的讲解参考网址：
+https://baijiahao.baidu.com/s?id=1667443239764190065&wfr=spider&for=pc
+'''
