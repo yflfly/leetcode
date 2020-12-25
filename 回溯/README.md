@@ -26,3 +26,5 @@
                 back(状态，条件1，条件2，……)
         back(状态，条件1，条件2，……)
         return res
+
+[回溯法套路模板 刷通leetcode](https://zhuanlan.zhihu.com/p/112926891)<br>

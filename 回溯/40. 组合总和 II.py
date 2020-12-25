@@ -86,3 +86,34 @@ class Solution(object):
         candidates.sort()  ##不要忘记先对candidates排序
         dfs(candidates, [], 0, 0, res)
         return res
+
+
+'''
+全局变量：res = []
+参数设计：（1）状态变量：当前选用过的数字（2）条件变量：剩余的备选数字 和 当前数字的总和。
+完成条件：当数字总和等于target了，就加入到res；当大于target了，则不再搜索；当小于target了，就继续搜索。
+递归过程：如果当前总和小于target就继续搜索。
+'''
+
+
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        state = []
+        s = set()
+
+        def back(state, p, count):
+            for i in range(p, len(candidates)):
+                temp_count = count + candidates[i]
+                temp_state = state + [candidates[i]]
+                if temp_count < target:
+                    back(temp_state, i + 1, temp_count)
+                else:
+                    if temp_count == target and tuple(temp_state) not in s:
+                        s.add(tuple(temp_state))
+                        res.append(temp_state)
+                    return
+
+        candidates.sort()
+        back(state, 0, 0)
+        return res
