@@ -43,33 +43,32 @@ class Solution:
 
         dfs(0)
         return res
+
+
 '''
-out = set()
-
-
-def Permutation(ss):
-    if len(ss) == 0:
-        return out
-    charlist = list(ss)
-    permutation(charlist, 0, out)
-    return sorted(list(out))
-
-
-def permutation(ss, begin, out):
-    if begin == len(ss) - 1:
-        out.add(''.join(ss[:]))
-    else:
-        for i in range(begin, len(ss)):
-            # 如果是重复字符，跳过
-            if ss[begin] == ss[i] and begin != i:
-                continue
-            else:
-                # 依次与后面每个字符交换
-                ss[begin], ss[i] = ss[i], ss[begin]
-                print(ss)
-                permutation(ss, begin + 1, out)
-                # 回到上一个状态
-                ss[begin], ss[i] = ss[i], ss[begin]
-s = "abc"
-print(Permutation(s))
+全局变量：res = []
+参数设计：（1）状态变量：当前组成的字符排列（2）条件变量：剩余的备选字符。
+完成条件：当前状态没有被组成，就加入到res；被组成过，就停止搜索。
+递归过程：加入当前元素进入下一次递归。
 '''
+
+
+class Solution:
+    def permutation(self, s: str) -> List[str]:
+        res = []  # 定义全局变量保存最终结果
+        state = ""  # 定义状态变量保存当前状态
+        exist = set()  # 定义条件变量（一般条件变量就是题目直接给的参数）
+
+        def back(state, s):
+            if state in exist:  # 不满足合法条件（可以说是剪枝）
+                return
+            elif len(s) == 0:  # 状态满足最终要求
+                res.append(state)  # 加入结果
+                exist.add(state)
+                return
+                # 主要递归过程，一般是带有 循环体 或者 条件体
+            for i in range(len(s)):  # 满足执行条件
+                back(state + s[i], s[:i] + s[i + 1:])
+
+        back(state, s)
+        return res
