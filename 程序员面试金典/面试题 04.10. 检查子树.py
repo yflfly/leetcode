@@ -13,6 +13,8 @@
  输入：t1 = [1, null, 2, 4], t2 = [3, 2]
  输出：false
 '''
+
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -20,11 +22,13 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def checkSubTree(self, t1: TreeNode, t2: TreeNode) -> bool:
         if not t1 or not t2:
             return False
         return self.check(t1, t2) or self.checkSubTree(t1.left, t2) or self.checkSubTree(t1.right, t2)
+
     def check(self, s, t):  # 这里 t 可能为空
         if not t:
             return True
