@@ -33,3 +33,7 @@ class Solution:
             else:
                 return 0
         return res
+'''
+相关类型的题目：
+https://leetcode-cn.com/problems/smallest-difference-lcci/solution/wo-shi-ni-de-ma-ma-ya-di-yi-qi-by-fe-lucifer/
+'''
