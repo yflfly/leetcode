@@ -30,3 +30,5 @@ class Solution:
                 node.next = node.next.next
             else:
                 node.next = None
+        else:
+            node = None
