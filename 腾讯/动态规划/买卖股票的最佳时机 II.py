@@ -34,3 +34,8 @@ class Solution:
             dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i])
             dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i])
         return dp[-1][0]
+
+'''
+代码讲解网址：
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/mai-mai-gu-piao-de-zui-jia-shi-ji-ii-by-leetcode-s/
+'''
