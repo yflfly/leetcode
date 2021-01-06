@@ -42,3 +42,7 @@ class Solution:
                 else:
                     dp[i][j] = min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]) + 1
         return dp[-1][-1]
+'''
+讲解的网址：
+https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/
+'''
