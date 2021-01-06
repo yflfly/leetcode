@@ -23,6 +23,8 @@
 p、q 为不同节点且均存在于给定的二叉搜索树中。
 
 '''
+
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -30,12 +32,13 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         while root:
-            if root.val >p.val and root.val >q.val:
+            if root.val > p.val and root.val > q.val:
                 root = root.left
-            elif root.val <p.val and root.val <q.val:
+            elif root.val < p.val and root.val < q.val:
                 root = root.right
             else:
                 break
