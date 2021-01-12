@@ -25,3 +25,5 @@ leetcode-面试题 10.05. 稀疏数组搜索
 leetcode- 两数相加
 leetcode-反转链表
 leetcode-旋转链表
+leetcode-三数之和
+leetcode-最接近的三数之和
