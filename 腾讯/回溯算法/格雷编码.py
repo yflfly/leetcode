@@ -31,15 +31,17 @@
 class Solution:
     def grayCode(self, n: int) -> List[int]:
         seen = set([0])
-
         def backtrack(path):
-            if len(path) == 2 ** n: return path
+            if len(path) == 2 ** n:
+                return path
             for i in range(n):
                 nxt = 1 << i ^ path[-1]
-                if nxt in seen: continue
+                if nxt in seen:
+                    continue
                 seen.add(nxt)
                 path.append(nxt)
-                if backtrack(path): return path
+                if backtrack(path):
+                    return path
                 path.pop()
                 seen.remove(nxt)
 
