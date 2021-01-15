@@ -31,6 +31,7 @@
 class Solution:
     def grayCode(self, n: int) -> List[int]:
         seen = set([0])
+
         def backtrack(path):
             if len(path) == 2 ** n:
                 return path
