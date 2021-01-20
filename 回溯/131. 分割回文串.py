@@ -46,19 +46,23 @@ class Solution:
         back(state, s)
         return res
 
+
 def own(s):
     res = []
     state = []
+
     def check(i):
         if i != i[::-1]:
             return False
         return True
-    def back(state,s):
+
+    def back(state, s):
         if len(s) == 0:
             res.append([e for e in state])
             return
-        for i in range(0,len(s)):
-            if check(s[:i+1]):
-                back(state+[s[:i+1]],s[i+1:])
-    back(state,s)
+        for i in range(0, len(s)):
+            if check(s[:i + 1]):
+                back(state + [s[:i + 1]], s[i + 1:])
+
+    back(state, s)
     return res
