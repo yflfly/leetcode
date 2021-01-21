@@ -29,3 +29,5 @@ leetcode-三数之和
 leetcode-最接近的三数之和
 leetcode-反转字符串
 leetcode-合并两个有序数组
+leetcode-分割回文串
+leetcode-验证回文串
