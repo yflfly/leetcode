@@ -1,0 +1,6 @@
+左右指针在数组中实际是指两个索引值，⼀般初始化为 left= 0, right = nums.length - 1
+
+1、二分查找
+有序数组
+设置两个指针 left = 0  right = len(nums)-1
+
