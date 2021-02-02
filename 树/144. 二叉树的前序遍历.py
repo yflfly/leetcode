@@ -18,6 +18,8 @@
 输入：root = [1,null,2]
 输出：[1,2]
 '''
+
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -25,9 +27,40 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
         else:
-            return [root.val]+self.preorderTraversal(root.left)+self.preorderTraversal(root.right)
+            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+
+        def dfs(root):
+            if not root:
+                return
+            res.append(root.val)
+            dfs(root.left)
+            dfs(root.right)
+
+        dfs(root)
+        return res
+
+
+# 方法二：迭代
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        stack = []
+        while root or stack:
+            while root:
+                res.append(root.val)
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            root = root.right
+        return res
