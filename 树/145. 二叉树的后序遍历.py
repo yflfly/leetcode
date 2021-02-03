@@ -2,9 +2,7 @@
 '''
 145. 二叉树的后序遍历
 给定一个二叉树，返回它的 后序 遍历。
-
 示例:
-
 输入: [1,null,2,3]
    1
     \
@@ -32,6 +30,21 @@ class Solution:
             return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
 
 
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+
+        def dfs(root):
+            if not root:
+                return
+            dfs(root.left)
+            dfs(root.right)
+            res.append(root.val)
+
+        dfs(root)
+        return res
+
+
 # 非递归的方法
 # Definition for a binary tree node.
 class TreeNode:
@@ -55,6 +68,27 @@ class Solution:
             if s.right:
                 stack.append(s.right)
         return res[::-1]
+
+
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        stack = []
+        prev = None
+
+        while root or stack:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            if not root.right or root.right == prev:
+                res.append(root.val)
+                prev = root
+                root = None
+            else:
+                stack.append(root)
+                root = root.right
+        return res
 
 
 '''
