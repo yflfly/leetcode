@@ -39,7 +39,10 @@ class Solution:
             else:
                 j -= 1
         return numbers[i]
-
+'''
+讲解参考网址：
+https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/solution/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-by-leetcode-s/
+'''
 
 # 方法二：直接遍历数组，找到非递增位置返回就行，但是这样的做法运行时间太长
 class Solution:
