@@ -11,11 +11,10 @@
 1 <= nums.length <= 10
 -10 <= nums[i] <= 10
 
-
 考查标签：位运算、数组、回溯算法
 '''
 
-
+'''
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         def helper(i, tmp):
@@ -26,5 +25,18 @@ class Solution:
         n = len(nums)
         helper(0, [])
         return res
+'''
 
 
+def helper(i, tmp):
+    res.append(tmp)
+    for j in range(i, n):
+        helper(j + 1, tmp + [nums[j]])
+
+
+nums = [1, 2, 3]
+res = []
+n = len(nums)
+helper(0, [])
+
+print(res)
