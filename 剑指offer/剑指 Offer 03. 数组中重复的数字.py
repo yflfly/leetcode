@@ -29,6 +29,7 @@ class Solution:
                 return each
         return -1  # 本题中一定有重复数字，因此这里返回多少都可以
 
+
 '''
 方法二：原地交换
 仔细审题，题目中“在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内”，即数组元素的索引和值是一对多的关系
@@ -43,6 +44,8 @@ class Solution:
 不进行交换     0   1   2   3   2   5   3   此时遍历到4位置的2，与2位置的2重复，则返回重复的数字2
 
 '''
+
+
 class Solution:
     def findRepeatNumber(self, nums: [int]) -> int:
         i = 0
@@ -50,6 +53,7 @@ class Solution:
             if nums[i] == i:
                 i += 1
                 continue
-            if nums[nums[i]] == nums[i]: return nums[i]
+            if nums[nums[i]] == nums[i]:
+                return nums[i]
             nums[nums[i]], nums[i] = nums[i], nums[nums[i]]
         return -1
