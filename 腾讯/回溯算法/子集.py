@@ -22,7 +22,6 @@ class Solution:
             res.append(tmp)
             for j in range(i, n):
                 helper(j + 1, tmp + [nums[j]])
-
         res = []
         n = len(nums)
         helper(0, [])
