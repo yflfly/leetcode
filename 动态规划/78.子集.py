@@ -12,7 +12,7 @@
 
 # 方法一:动态规划
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums):
         dp = [[]]
         for i in nums:
             dp = dp + [[i] + num for num in dp]
@@ -25,3 +25,11 @@ class Solution(object):
         if nums == []:
             return [[]]
         return self.subsets(nums[:-1]) + [i + [nums[-1]] for i in self.subsets(nums[:-1])]
+
+
+nums = [1, 2, 3]
+dp = [[]]
+for i in nums:
+    dp = dp + [num + [i] for num in dp]
+    print(dp)
+print(dp)
