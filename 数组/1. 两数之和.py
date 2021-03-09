@@ -30,3 +30,12 @@ class Solution:
                 return [hashtable[target - num], i]
             hashtable[nums[i]] = i
         return []
+
+
+def twosum(nums, target):
+    hashtable = dict()
+    for i, num in enumerate(nums):
+        if target - num in dict:
+            return [hashtable[target - num], i]
+        hashtable[nums[i]] = i
+    return []
