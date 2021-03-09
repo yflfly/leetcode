@@ -16,10 +16,12 @@
 相加得到结果；
 将结果转换为一个链表。
 '''
+
+
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
-        #1.还原两个非负整数；
+        # 1.还原两个非负整数；
         num1 = str(l1.val)
         while l1.next:
             l1 = l1.next
@@ -31,15 +33,16 @@ class Solution:
             num2 += str(l2.val)
         num2 = int(num2[::-1])
 
-        #2.求和；
+        # 2.求和；
         num = str(num1 + num2)
 
-        #3.还原结果。
+        # 3.还原结果。
         L = len(num)
         result = ListNode(int(num[0]))
         for i in range(1, L):
             result = ListNode(int(num[i]), result)
         return result
+
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -49,33 +52,31 @@ class Solution:
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-            list1 = []
-            list2 = []
-            l1_ = l1
-            l2_ = l2
-            while l1_:
-                list1.append(l1_.val)
-                l1_ = l1_.next
-            while l2_:
-                list2.append(l2_.val)
-                l2_ = l2_.next
-            int1 = 0
-            for i in range(len(list1)-1,-1,-1):
+        list1 = []
+        list2 = []
+        l1_ = l1
+        l2_ = l2
+        while l1_:
+            list1.append(l1_.val)
+            l1_ = l1_.next
+        while l2_:
+            list2.append(l2_.val)
+            l2_ = l2_.next
+        int1 = 0
+        for i in range(len(list1) - 1, -1, -1):
+            int1 += list1[i] * 10 ** i
+        int2 = 0
+        for i in range(len(list2) - 1, -1, -1):
+            int2 += list2[i] * 10 ** i
 
-                int1 += list1[i] *10**i
+        c = int1 + int2
+        c_list = list(str(c))
+        cur_ = ListNode(0)
+        cur = cur_
+        for i in range(len(c_list) - 1, -1, -1):
+            linshi = ListNode(0)
+            linshi.val = int(c_list[i])
+            cur.next = linshi
+            cur = cur.next
 
-            int2 = 0
-            for i in range(len(list2)-1,-1,-1):
-                int2 += list2[i] *10**i
-
-            c = int1 + int2
-            c_list = list(str(c))
-            cur_ = ListNode(0)
-            cur = cur_
-            for i in range(len(c_list) - 1, -1, -1):
-                linshi = ListNode(0)
-                linshi.val = int(c_list[i])
-                cur.next = linshi
-                cur = cur.next
-
-            return cur_.next
+        return cur_.next
