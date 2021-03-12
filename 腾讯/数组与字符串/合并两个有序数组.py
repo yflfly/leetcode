@@ -44,7 +44,7 @@ class Solution:
         Do not return anything, modify nums1 in-place instead.
         """
         nums1_copy = nums1[:m]
-        nums1[:] = []
+        nums1[:] = [] # 此处需要多多注意 不能写成 nums1= [] 提交不通过
         p1 = 0
         p2 = 0
         while p1 < m and p2 < n:
