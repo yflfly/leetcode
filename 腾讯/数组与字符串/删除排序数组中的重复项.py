@@ -26,7 +26,7 @@ for (int i = 0; i < len; i++) {
 
 
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
+    def removeDuplicates(self, nums) -> int:
         slow, fast = 0, 1
         while fast < len(nums):
             if nums[slow] != nums[fast]:
@@ -34,3 +34,16 @@ class Solution:
                 nums[slow] = nums[fast]
             fast += 1
         return slow + 1
+
+
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+slow, fast = 0, 1
+while fast < len(nums):
+    if nums[slow] != nums[fast]:
+        nums[slow + 1] = nums[fast]
+        slow += 1
+    fast += 1
+res_len = slow + 1
+print(nums)
+print(res_len)
+print(nums[:slow + 1])
