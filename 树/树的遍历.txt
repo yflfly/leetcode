@@ -1,0 +1,25 @@
+# 前序遍历
+def preTraverse(root):
+    if root is None:
+        return
+    print(root.value)
+    preTraverse(root.left)
+    preTraverse(root.right)
+
+
+# 中序遍历
+def midTraverse(root):
+    if root is None:
+        return
+    midTraverse(root.left)
+    print(root.value)
+    midTraverse(root.right)
+
+
+# 后序遍历
+def afterTraverse(root):
+    if root is None:
+        return
+    afterTraverse(root.right)
+    afterTraverse(root.left)
+    print(root.value)
