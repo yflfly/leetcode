@@ -51,3 +51,7 @@ class Solution:
                 stack.append(node.right)
             node.left, node.right = node.right, node.left
         return root
+'''
+讲解参考网址：
+https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/solution/mian-shi-ti-27-er-cha-shu-de-jing-xiang-di-gui-fu-/
+'''
