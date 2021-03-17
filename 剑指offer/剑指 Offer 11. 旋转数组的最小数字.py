@@ -12,7 +12,6 @@
 
 '''
 
-
 # 方法一：二分法
 '''
 因为题目中指定排序数组，所以第一想法就是可不可以用二分法进行解决
@@ -27,6 +26,8 @@
 [1,0,1,1,1] ，我们要找的在区间在左侧
 [1,1,1,0,1]，而此时要找的区间在右侧
 '''
+
+
 class Solution:
     def minArray(self, numbers: [int]) -> int:
         i, j = 0, len(numbers) - 1
@@ -39,10 +40,35 @@ class Solution:
             else:
                 j -= 1
         return numbers[i]
+
+
+# 变量替换一下
+class Solution:
+    def minArray(self, numbers: [int]) -> int:
+        left, right = 0, len(numbers) - 1
+        while left < right:
+            middle = (left + right) // 2
+            if numbers[middle] > numbers[right]:
+                left = middle + 1
+            elif numbers[middle] < numbers[right]:
+                right = middle
+            else:
+                right -= 1
+        return numbers[left]  # 或者numbers[left]
+'''
+复杂度分析
+时间复杂度：平均时间复杂度为O(logn)，其中n是数组numbers 的长度。
+如果数组是随机生成的，那么数组中包含相同元素的概率很低，在二分查找的过程中，
+大部分情况都会忽略一半的区间。而在最坏情况下，如果数组中的元素完全相同，那么 while 循环就需要执行n次，
+每次忽略区间的右端点，时间复杂度为O(n)。
+空间复杂度：O(1)。
+'''
+
 '''
 讲解参考网址：
 https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/solution/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-by-leetcode-s/
 '''
+
 
 # 方法二：直接遍历数组，找到非递增位置返回就行，但是这样的做法运行时间太长
 class Solution:
