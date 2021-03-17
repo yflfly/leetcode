@@ -33,21 +33,3 @@ class Solution:
                     cur = cur.next
                 p.next = cur
         return newhead.next
-
-
-class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
-        newhead = ListNode(-1)
-        p = newhead
-        p.next = head
-        cur = head
-        while cur and cur.next:
-            if cur.val != cur.next.val:
-                p = p.next
-                cur = cur.next
-            else:
-                val = cur.val
-                while cur and cur.val == val:
-                    cur = cur.next
-                p.next = cur
-        return newhead.next

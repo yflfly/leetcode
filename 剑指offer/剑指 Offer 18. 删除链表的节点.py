@@ -39,3 +39,8 @@ class Solution:
         if cur:
             pre.next = cur.next
         return head
+'''
+复杂度分析：
+时间复杂度O(N)：N为链表长度，删除操作平均需循环N/2次，最差N次。
+空间复杂度O(1)：cur, pre 占用常数大小额外空间。
+'''
