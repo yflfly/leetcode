@@ -62,7 +62,7 @@ def count_rigth(t1, list2):
         list2.append('null')
 
 
-#
+# 方法一：递归法
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         def isSame(p1, p2):
@@ -79,3 +79,42 @@ class Solution:
         if root.left and not root.right:
             return False
         return isSame(root.left, root.right)
+
+
+# 方法二：非递归(层序遍历)
+'''
+使用双端队列Deque，使队首和队尾都可以执行入队和出队操作
+'''
+from collections import deque
+
+
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        d = deque()
+        d.appendleft(root.left)
+        d.append(root.right)
+        while d:
+            left_node = d.popleft()
+            right_node = d.pop()
+            if not left_node and not right_node:
+                continue
+            if not left_node or not right_node:
+                return False
+            # 代码走到这里一定有 left_node 和 right_node 非空
+            # 因此可以取出 val 进行判断了
+            if left_node.val != right_node.val:
+                return False
+            d.appendleft(left_node.right)
+            d.appendleft(left_node.left)
+            d.append(right_node.left)
+            d.append(right_node.right)
+        return True
+
+
+'''
+复杂度分析：
+时间复杂度：O(N)，这里N为树的结点个数，事实上这个递归方法就是在做树的遍历，每个结点访问一次；
+空间复杂度：O(L)，这里L表示树的相邻两层结点个数之和的最大值。
+'''
