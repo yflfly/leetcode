@@ -17,6 +17,7 @@
 '''
 
 
+# 方法一：字典计数，并进行排序
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         res = []
