@@ -66,3 +66,23 @@ class Solution:
 
         dfs(root, total)
         return ret
+
+
+class Solution:
+    def pathSum(self, root: TreeNode, targetSum: int) -> List[List[int]]:
+        res = []
+        path = []
+
+        def dfs(root, targetSum):
+            if not root:
+                return
+            path.append(root.val)
+            if not root.left and not root.right:
+                if targetSum == root.val:
+                    res.append(path[:])  # 此处是需要注意的点
+            dfs(root.left, targetSum - root.val)
+            dfs(root.right, targetSum - root.val)
+            path.pop()
+
+        dfs(root, targetSum)
+        return res
