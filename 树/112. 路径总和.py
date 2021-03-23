@@ -42,3 +42,16 @@ class Solution:
 代码讲解网址：
 https://leetcode-cn.com/problems/path-sum/solution/you-neng-dp-zai-yuan-er-cha-shu-shang-jin-xing-xiu/
 '''
+# 不对原来的树进行修改
+class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if not root:
+            return False
+        if not root.left and not root.right:
+            return sum == root.val
+        return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
+'''
+复杂度分析
+时间复杂度：O(N)，其中N是树的节点数。对每个节点访问一次。
+空间复杂度：O(H)，其中H是树的高度。空间复杂度主要取决于递归时栈空间的开销，最坏情况下，树呈现链状，空间复杂度为 O(N)。平均情况下树的高度与节点数的对数正相关，空间复杂度为O(logN)。
+'''
