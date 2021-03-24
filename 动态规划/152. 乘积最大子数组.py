@@ -58,11 +58,9 @@ class Solution:
 确定状态转移方程
 1）我们将大数组一步一步分为小数组，那么 dp 的最大乘积可能为
 2）nums[i]、以 i-1 结尾的乘积最大子数组的乘积 dp_max[i] * nums[i]、以 i-1 结尾的乘积最小子数组的乘积 dp_min[i] * nums[i]
-3）对于 dp_max ，取三者的 max；对于dp_min，取三者的 min
-确定初始状态
-1）初始化为数组第一个数 dp_max[0], dp_min[0] = nums[0], nums[0]
+3）对于dp_max，取三者的max；对于dp_min，取三者的min确定初始状态
+1）初始化为数组第一个数dp_max[0], dp_min[0]=nums[0],nums[0]
 2）其余位置设置为 0
 
 也可以用一个统一的二维数组将 dp_max ，dp_min 放入第一列和第二列
-
 '''
