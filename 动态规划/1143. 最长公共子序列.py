@@ -50,7 +50,7 @@ https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gu
 
 https://leetcode-cn.com/problems/longest-common-subsequence/solution/dong-tai-gui-hua-tu-wen-jie-xi-by-yijiaoqian/
 
-方法：
+方法介绍：
 最长公共子序列（Longest Common Subsequence，简称 LCS）是一道非常经典的面试题目，因为它的解法是典型的二维动态规划，大部分比较困难的字符串问题都和这个问题一个套路，比如说编辑距离。而且，这个算法稍加改造就可以用于解决其他问题，所以说 LCS 算法是值得掌握的。
 动态规划算法做的就是穷举+剪枝，它俩天生一对，所以可以说只要涉及子序列问题，十有八九都需要动态规划来解决
 
