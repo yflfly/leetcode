@@ -15,17 +15,19 @@
   []
 ]
 '''
+
+
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        def helper(i, tmp):
-            if tmp not in res:
-                res.append(tmp)
-            for j in range(i, n):
-                helper(j + 1, tmp + [nums[j]])
+        def backtrack(i, path):
+            if path not in res:
+                res.append(path)
+            for j in range(i, len(nums)):
+                backtrack(j + 1, path + [nums[j]])
+
         if not nums:
             return []
-        n = len(nums)
+        nums.sort()  # 进行了一个排序
         res = []
-        nums.sort()
-        helper(0, [])
+        backtrack(0, [])
         return res

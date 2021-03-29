@@ -18,18 +18,20 @@
 ]
 '''
 
-# 回溯方法(递归)
+
+# 回溯方法
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        def helper(i, tmp):
-            res.append(tmp)
-            for j in range(i, n):
-                helper(j + 1, tmp + [nums[j]])
+        def backtrack(i, path):
+            res.append(path)
+            for j in range(i, len(nums)):
+                backtrack(j + 1, path + [nums[j]])
 
         res = []
-        n = len(nums)
-        helper(0, [])
+        backtrack(0, [])
         return res
+
+
 # 迭代
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
@@ -37,6 +39,7 @@ class Solution:
         for i in nums:
             res = res + [[i] + num for num in res]
         return res
+
 
 '''
 代码讲解网址：
