@@ -29,4 +29,8 @@ class Solution:
 '''
 讲解的网址：
 https://leetcode-cn.com/problems/subarray-product-less-than-k/solution/hua-dong-chuang-kou-fa-by-jia-zhi-tong-1/
+算法复杂度
+时间复杂度：O(N)。虽然算法中有两重循环，但由于left和right都只是从左到右遍历一次，故算法的时间复杂度为O(N)。
+空间复杂度：O(1)。算法中只用了几个变量，故空间复杂度为O(1)。
+
 '''
