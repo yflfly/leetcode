@@ -14,7 +14,6 @@ candidates 中的数字可以无限制重复被选取。
   [2,2,3]
 ]
 示例 2：
-
 输入：candidates = [2,3,5], target = 8,
 所求解集为：
 [
@@ -32,11 +31,10 @@ class Solution:
         # 可能的组合
         tmp = []
 
-        def helper(idx, total):
+        def backtrack(idx, total):
             """回溯，求组合总和
-            Args:
-                idx: 选取元素索引
-                total: 组合中的元素和
+            idx: 选取元素索引
+            total: 组合中的元素和
             """
             # 基准条件
             # 当元素和大于目标值，直接返回
@@ -53,16 +51,17 @@ class Solution:
                 # 同时将当前元素尝试添加到组合中
                 tmp.append(candidates[i])
                 # 再次进入递归
-                # 这里可以看文章图例，递归向下，可选元素是从自身开始选择
+                # 递归向下，可选元素是从自身开始选择
                 # 这里同时也能避免组合重复，因为不会再次选择索引 i 前面对应的元素
-                helper(i, total)
+                backtrack(i, total)
                 # 回溯，回退组合元素及 total 值
                 tmp.pop()
                 total -= candidates[i]
 
         total = 0
-        helper(0, total)
+        backtrack(0, total)
         return ans
+
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:

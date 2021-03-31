@@ -67,9 +67,9 @@ class Solution(object):
             # ans：用来保存路径上经历过的元素的和，用来与target比较
             # res：用来保存结果数组
 
-            if ans > target:  ## 不符合，返回上一层找其他路径
+            if ans > target:  # 不符合，返回上一层找其他路径
                 return
-            if ans == target:  ## 符合条件，加入数组
+            if ans == target:  #  符合条件，加入数组
                 res.append(path[:])
                 return
 
@@ -77,13 +77,13 @@ class Solution(object):
                 if i > begin and candidates[i - 1] == candidates[i]:  # 如果有重复的值，跳过
                     continue
 
-                    ##每次path加入candidates[i]的值，begin为i+1，ans就加上candidates的值
+                # 每次path加入candidates[i]的值，begin为i+1，ans就加上candidates的值
                 dfs(candidates, path + [candidates[i]], i + 1, ans + candidates[i], res)
 
         n = len(candidates)
         res = []
 
-        candidates.sort()  ##不要忘记先对candidates排序
+        candidates.sort()  # 不要忘记先对candidates排序
         dfs(candidates, [], 0, 0, res)
         return res
 
