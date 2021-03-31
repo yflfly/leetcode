@@ -30,7 +30,7 @@ class TreeNode:
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         if not root:
-            return True
+            return True  # 也可以 return 返回空，在leetcode上也可以通过
 
         def dfs(left, right):
             if (not left) and (not right):
@@ -43,10 +43,12 @@ class Solution:
 
         return dfs(root.left, root.right)
 
+
 '''
 代码讲解网址：
 https://leetcode-cn.com/problems/symmetric-tree/solution/dong-hua-yan-shi-101-dui-cheng-er-cha-shu-by-user7/
 '''
+
 
 # 以前的解法
 # Definition for a binary tree node.
