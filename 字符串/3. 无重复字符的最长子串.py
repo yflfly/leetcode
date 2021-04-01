@@ -45,3 +45,28 @@ class Solution:
                 max1 = each
         return max1
 
+def get_substring(s):
+    if len(s) == 0:
+        return 0
+    if len(list(set(list(s)))) == 1:
+        return 1
+    dict1 = {}
+    for i in range(len(s)):
+        str1 = s[i]
+        tag = 0
+        for j in range(i + 1, len(s)):
+            if s[j] not in str1:
+                str1 = str1 + s[j]
+            else:
+                if str1 not in dict1:
+                    dict1[str1] = len(str1)
+                tag = 1
+                break
+        if tag == 0:
+            dict1[str1] = len(str1)
+    list1 = dict1.values()
+    max1 = 0
+    for each in list1:
+        if each > max1:
+            max1 = each
+    return max1
