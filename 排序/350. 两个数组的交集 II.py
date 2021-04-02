@@ -14,7 +14,7 @@
 我们可以不考虑输出结果的顺序。
 '''
 
-
+# 方法一：排序+双指针
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         # 数组排序
@@ -41,3 +41,20 @@ class Solution:
 首先对两个数组进行排序，然后使用两个指针遍历两个数组。
 初始时，两个指针分别指向两个数组的头部。每次比较两个指针指向的两个数组中的数字，如果两个数字不相等，则将指向较小数字的指针右移一位，当至少右一个指针超出数组范围时，遍历结束。
 '''
+
+# 方法二：哈希表
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        dict1 = {}
+        for each in nums1:
+            if each not in dict1:
+                dict1[each] = 1
+            else:
+                dict1[each] += 1
+        res = []
+        for each in nums2:
+            if each in dict1:
+                if dict1[each] != 0:
+                    res.append(each)
+                    dict1[each] -= 1
+        return res
