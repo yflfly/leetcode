@@ -32,7 +32,7 @@ class Solution:
             answer[i] = L[i] * R[i]
         return answer
 '''
-复杂度分析
+复杂度分析：
 时间复杂度：O(N)，其中N指的是数组nums的大小。预处理 和R数组以及最后的遍历计算都是O(N)的时间复杂度。
 空间复杂度：O(N)，其中N指的是数组nums的大小。使用了L和R数组去构造答案，L和R数组的长度为数组nums的大小。
 '''
