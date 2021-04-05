@@ -23,11 +23,11 @@ class Solution:
         for i in range(1, length):
             L[i] = nums[i - 1] * L[i - 1]
         # R[i] 为索引 i 右侧所有元素的乘积
-        # 对于索引为 'length-1' 的元素，因为右侧没有元素，所以 R[length-1] = 1
+        # 对于索引为'length-1'的元素，因为右侧没有元素，所以 R[length-1] = 1
         R[length - 1] = 1
         for i in reversed(range(length - 1)):
             R[i] = nums[i + 1] * R[i + 1]
-        # 对于索引 i，除 nums[i] 之外其余各元素的乘积就是左侧所有元素的乘积乘以右侧所有元素的乘积
+        # 对于索引i，除nums[i]之外其余各元素的乘积就是左侧所有元素的乘积乘以右侧所有元素的乘积
         for i in range(length):
             answer[i] = L[i] * R[i]
         return answer
