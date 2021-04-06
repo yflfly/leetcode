@@ -24,6 +24,22 @@ class Solution:
         return max(dp)
 
 
+# min_的另外一种秋解方法
+class Solution:
+    def maxProfit(self, prices) -> int:
+        if not prices:
+            return 0
+        dp = [0 for i in range(len(prices))]
+        min_ = prices[0]
+        for i in range(1, len(prices)):
+            # min_ = min(prices[:i])
+            if prices[i] > min_:
+                dp[i] = prices[i] - min_
+            else:
+                min_ = prices[i]
+        return max(dp)
+
+
 prices = [7, 1, 5, 3, 6, 4]
 dp = [0 for _ in prices]
 for i in range(1, len(prices)):
