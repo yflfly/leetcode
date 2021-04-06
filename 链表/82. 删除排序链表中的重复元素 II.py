@@ -33,3 +33,8 @@ class Solution:
                     cur = cur.next
                 p.next = cur
         return newhead.next
+'''
+复杂度分析
+时间复杂度：O(n)，其中n是链表的长度
+空间复杂度：O(1)
+'''
