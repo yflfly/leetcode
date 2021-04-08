@@ -29,3 +29,8 @@ class Solution:
             res = str(tmp % 10) + res
             i, j = i - 1, j - 1
         return "1" + res if carry else res
+'''
+复杂度分析：
+时间复杂度O(max(M,N))：其中M，N为2数字长度，按位遍历一遍数字（以较长的数字为准）；
+空间复杂度O(1)：指针与变量使用常数大小空间。
+'''
