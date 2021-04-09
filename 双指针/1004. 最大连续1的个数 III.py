@@ -25,6 +25,8 @@ right主动右移：right指针每次移动一步。当 A[right]为0，说明滑
 left被动右移：判断此时窗口内0的个数，如果超过了K，则left指针被迫右移，直至窗口内的0的个数小于等于K为止。
 滑动窗口长度的最大值就是所求。
 '''
+
+
 class Solution:
     def longestOnes(self, A: List[int], K: int) -> int:
         zero = 0
@@ -35,13 +37,15 @@ class Solution:
         while right < n:
             if A[right] == 0:
                 zero += 1
-            while zero >K:
+            while zero > K:
                 if A[left] == 0:
                     zero -= 1
                 left += 1
-            max_len = max(max_len,right-left+1)
+            max_len = max(max_len, right - left + 1)
             right += 1
         return max_len
+
+
 '''
 复杂度分析：
 时间复杂度：O(N)，因为每个元素只遍历了一次。
