@@ -4,3 +4,15 @@ python中的数组和列表具有相同的存储方式。但是，数组只能�
 2、什么是__init__
 __init__是python中的方法或者结构，在创建类的新对象/实例时，将自动调用此方法来分配内存，所有类都有__init__方法
 
+
+3、什么是lambda函数
+lambda函数也叫匿名函数，该函数可以包含任意数量的参数，但只能有一个执行操作的语句
+
+4、如何在Python中随机化列表中的元素？
+
+可以使用shuffle函数进行随机列表元素。举例如下：
+
+from random import shuffle
+x = ['Keep', 'The', 'Blue', 'Flag', 'Flying', 'High']
+shuffle(x)
+print(x)
