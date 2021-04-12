@@ -41,3 +41,7 @@ normalvariate(mean,sdev)：它用于正态分布，其中mean是平均值，sdev
 8、什么是pickling和unpickling？
 Pickle模块接受任何Python对象并将其转换为字符串表示形式，并使用dump函数将其转储到文件中，此过程称为pickling。
 从存储的字符串中检索原始Python对象的过程称为unpickling。
+
+9、python中的生成器是什么？
+返回可迭代项集的函数称为生成器。
+
