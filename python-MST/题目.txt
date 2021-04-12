@@ -9,10 +9,21 @@ __init__是python中的方法或者结构，在创建类的新对象/实例时�
 lambda函数也叫匿名函数，该函数可以包含任意数量的参数，但只能有一个执行操作的语句
 
 4、如何在Python中随机化列表中的元素？
-
 可以使用shuffle函数进行随机列表元素。举例如下：
-
 from random import shuffle
 x = ['Keep', 'The', 'Blue', 'Flag', 'Flying', 'High']
 shuffle(x)
 print(x)
+
+5、什么是python迭代器？
+迭代器是可以遍历或迭代的对象。
+
+6、如何在python中生成随机数？
+random模块是用于生成随机数的标准模块。该方法定义为：
+import random
+random.random
+random.random()方法返回[0,1]范围内的浮点数。该函数生成随机浮点数。随机类使用的方法是隐藏实例的绑定方法。可以使用Random的实例来显示创建不同线程实例的多线程程序。其中使用的其他随机生成器是：
+randrange(a,b)：它选择一个整数并定义[a，b]之间的范围。它通过从指定范围中随机选择元素来返回元素。它不构建范围对象。
+uniform(a,b)：它选择一个在[a，b)范围内定义的浮点数
+normalvariate(mean,sdev)：它用于正态分布，其中mean是平均值，sdev是用于标准偏差的sigma。
+使用和实例化的Random类创建一个独立的多个随机数生成器。
