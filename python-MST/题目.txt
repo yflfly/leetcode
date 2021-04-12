@@ -27,3 +27,17 @@ randrange(a,b)：它选择一个整数并定义[a，b]之间的范围。它通�
 uniform(a,b)：它选择一个在[a，b)范围内定义的浮点数
 normalvariate(mean,sdev)：它用于正态分布，其中mean是平均值，sdev是用于标准偏差的sigma。
 使用和实例化的Random类创建一个独立的多个随机数生成器。
+
+7、range＆xrange有什么区别？
+在大多数情况下，xrange和range在功能方面完全相同。
+
+它们都提供了一种生成整数列表的方法，唯一的区别是range返回一个Python列表对象，x range返回一个xrange对象。
+
+这就表示xrange实际上在运行时并不是生成静态列表。它使用称为yielding的特殊技术根据需要创建值。
+该技术与一种称为生成器的对象一起使用。
+
+因此如果你有一个非常巨大的列表，那么就要考虑xrange。
+
+8、什么是pickling和unpickling？
+Pickle模块接受任何Python对象并将其转换为字符串表示形式，并使用dump函数将其转储到文件中，此过程称为pickling。
+从存储的字符串中检索原始Python对象的过程称为unpickling。
