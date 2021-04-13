@@ -38,3 +38,8 @@ class Solution:
         small_list.next = large_head.next
 
         return smll_head.next
+'''
+复杂度分析
+时间复杂度:O(n)，其中n是原链表的长度。我们对该链表进行了一次遍历。
+空间复杂度: O(1)。
+'''
