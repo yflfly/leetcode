@@ -31,3 +31,13 @@ class Solution:
             return
         root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
         return root
+
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return root
+        root.left, root.right = root.right, root.left   # 把根节点的左右孩子翻转
+        self.invertTree(root.left)                      # 递归地翻转左孩子的左孩子
+        self.invertTree(root.right)                     # 递归地翻转左孩子的右孩子
+        return root
+
