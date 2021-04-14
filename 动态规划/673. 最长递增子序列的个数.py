@@ -18,7 +18,6 @@ class Solution:
         n = len(nums)
         if n == 1:
             return 1
-
         dp = [1] * n  # 到nums[i]为止的最长递增子序列长度
         count = [1] * n  # 到nums[i]为止的最长递增子序列个数
         max_length = 0
