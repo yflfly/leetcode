@@ -45,6 +45,7 @@ class Solution:
                 max1 = each
         return max1
 
+
 def get_substring(s):
     if len(s) == 0:
         return 0
@@ -71,18 +72,37 @@ def get_substring(s):
             max1 = each
     return max1
 
+
 # 滑动窗口
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-            left = -1
-            res = 0
-            dict = {}
-            for right, item in enumerate(s):
-                if item in dict and dict[item] > left:  # 字符 item 在字典中, 且上次出现的下标 > 当前长度的左下标
-                    left = dict[item]   # 左下标移动到上次出现的位置，已经出现重复，肯定长度不会更大了，所以移动左下标
-                    dict[item] = right  # 更新那个再次出现的元素的新下标
-                else:                   # 不在字典中
-                    dict[item] = right  # 添加元素
-                    res = max(res, right - left)
-            return res
+        left = -1
+        res = 0
+        dict = {}
+        for right, item in enumerate(s):
+            if item in dict and dict[item] > left:  # 字符 item 在字典中, 且上次出现的下标 > 当前长度的左下标
+                left = dict[item]  # 左下标移动到上次出现的位置，已经出现重复，肯定长度不会更大了，所以移动左下标
+                dict[item] = right  # 更新那个再次出现的元素的新下标
+            else:  # 不在字典中
+                dict[item] = right  # 添加元素
+                res = max(res, right - left)
+        return res
 
+
+# 暴力求解法
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:
+            return 0
+        if len(s) == 1:
+            return 1
+        res = 0
+        for i in range(len(s)):
+            str_tmp = s[i]
+            for j in range(i + 1, len(s)):
+                if s[j] not in str_tmp:
+                    str_tmp = str_tmp + s[j]
+                else:
+                    break
+            res = max(res, len(str_tmp))
+        return res
