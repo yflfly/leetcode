@@ -42,7 +42,12 @@ class Solution:
             return dfs(left.left, right.right) and dfs(left.right, right.left)
 
         return dfs(root.left, root.right)
-
+'''
+复杂度分析
+假设树上一共n个节点。
+时间复杂度：这里遍历了这棵树，渐进时间复杂度为O(n)。
+空间复杂度：这里的空间复杂度和递归使用的栈空间有关，这里递归层数不超过n，故渐进空间复杂度为O(n)。
+'''
 
 '''
 代码讲解网址：
