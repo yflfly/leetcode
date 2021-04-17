@@ -24,6 +24,8 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+
 class Solution:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
         if not head:  # 链表为空，返回为空
@@ -44,6 +46,8 @@ class Solution:
         # 将环拆开
         new_tail.next = None
         return new_head
+
+
 '''
 讲解网址：
 https://leetcode-cn.com/problems/rotate-list/solution/xuan-zhuan-lian-biao-by-leetcode/
