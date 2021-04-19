@@ -26,3 +26,7 @@ class Solution(object):
                 else:
                     nums[i] = nums[i - 1]
         return count <= 1
+'''
+讲解网址：
+https://leetcode-cn.com/problems/non-decreasing-array/solution/3-zhang-dong-tu-bang-zhu-ni-li-jie-zhe-d-06gi/
+'''
