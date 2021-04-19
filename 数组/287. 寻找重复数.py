@@ -17,6 +17,7 @@
 '''
 
 
+# 方法一：哈希表
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         dic = {}
@@ -25,3 +26,25 @@ class Solution:
                 return each
             else:
                 dic[each] = 1
+
+
+# 方法二：快慢指针
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        slow, fast = 0, 0
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                fast = 0
+                while nums[slow] != nums[fast]:
+                    slow = nums[slow]
+                    fast = nums[fast]
+                return nums[slow]
+
+
+'''
+复杂度分析：
+时间复杂度：O(n)
+空间复杂度：O(1)
+'''
