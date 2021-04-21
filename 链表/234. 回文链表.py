@@ -61,3 +61,26 @@ class Solution:
             pre = pre.next
             slow = slow.next
         return True
+
+
+# 方法一：双指针
+class Solution:
+    def isPalindrome(self, head: ListNode) -> bool:
+        if (head is None) or (head.next is None):
+            return True
+        tmp = []
+        while head:
+            tmp.append(head.val)
+            head = head.next
+        i, j = 0, len(tmp) - 1
+        while i != j and i < len(tmp):
+            if tmp[i] != tmp[j]:
+                return False
+            i += 1
+            j -= 1
+        return True
+
+
+'''
+将链表的数存储到列表中，在列表中利用双指针的方法
+'''
