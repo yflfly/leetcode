@@ -48,3 +48,10 @@ class Solution:
             return a
         else:
             return 0
+
+
+# 排序法
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        nums.sort()
+        return nums[int(len(nums) / 2)]
