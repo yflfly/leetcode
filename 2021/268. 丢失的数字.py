@@ -62,3 +62,8 @@ class Solution:
         total_num = sum(nums)
         total = len(nums) * (len(nums) + 1) / 2
         return int(total - total_num)
+'''
+复杂度分析：
+时间复杂度：O(n)
+空间复杂度：O(1)
+'''
