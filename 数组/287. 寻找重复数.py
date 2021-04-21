@@ -43,6 +43,24 @@ class Solution:
                 return nums[slow]
 
 
+# 快慢指针的另外一个实现方法
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        if not nums or len(nums) == 0:
+            return 0
+        slow, fast = 0, 0
+        slow = nums[slow]
+        fast = nums[nums[fast]]
+        while slow != fast:
+            slow = nums[slow]  # 走一步
+            fast = nums[nums[fast]]  # 走两步
+        fast = 0
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+        return slow
+
+
 '''
 复杂度分析：
 时间复杂度：O(n)
