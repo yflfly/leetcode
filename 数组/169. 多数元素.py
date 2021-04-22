@@ -50,7 +50,7 @@ class Solution:
             return 0
 
 
-# 排序法
+# 方法三：排序法
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         nums.sort()
