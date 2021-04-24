@@ -1,3 +1,5 @@
+import collections
+
 '''
 127. 单词接龙
 字典 wordList 中从单词 beginWord 和 endWord 的 转换序列 是一个按下述规格形成的序列：
@@ -52,3 +54,26 @@ class Solution:
 讲解参考网址：
 https://blog.csdn.net/qq_17550379/article/details/83652490
 '''
+
+
+# 不用遍历26个字母的广度优先搜索方法
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordDict = collections.defaultdict(list)
+        for word in wordList:
+            for i in range(len(word)):
+                tmp = word[:i] + "_" + word[i + 1:]
+                wordDict[tmp].append(word)
+
+        q, visited = [(beginWord, 1)], set()
+        while q:
+            word, step = q.pop(0)
+            if word not in visited:
+                visited.add(word)
+                if word == endWord:
+                    return step
+                for i in range(len(word)):
+                    tmp = word[:i] + "_" + word[i + 1:]
+                    for neigh in wordDict[tmp]:
+                        q.append((neigh, step + 1))
+        return 0
