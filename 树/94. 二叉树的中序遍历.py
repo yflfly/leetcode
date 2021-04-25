@@ -18,31 +18,40 @@
 输入：root = [1,null,2]
 输出：[1,2]
 '''
+
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
+
+
 # 方法一 递归
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         if not root:
             return []
         else:
-            return self.inorderTraversal(root.left)+[root.val]+self.inorderTraversal(root.right)
+            return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+
 
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         res = []
+
         def dfs(root):
             if not root:
                 return
             dfs(root.left)
             res.append(root.val)
             dfs(root.right)
+
         dfs(root)
         return res
+
+
 '''
 递归遍历太简单了
 前序遍历：打印 - 左 - 右
@@ -55,6 +64,7 @@ class Solution:
 时间复杂度：O(n)
 空间复杂度：O(h)，h是树的高度
 '''
+
 
 # 方法二 迭代
 class Solution:
@@ -75,6 +85,7 @@ class Solution:
                 root = tmp.right
         return res
 
+
 '''
 递归的调用过程是不断往左走，当左边走不下去了，就打印节点，并转向右边，然后继续这个过程，可以使用栈来模拟上面的调用过程
 
@@ -85,4 +96,3 @@ class Solution:
 https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/dong-hua-yan-shi-94-er-cha-shu-de-zhong-xu-bian-li/
 
 '''
-
