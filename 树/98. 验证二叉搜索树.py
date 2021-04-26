@@ -47,3 +47,26 @@ class Solution:
         lower = float('-inf')
         upper = float('inf')
         return helper(root, lower, upper)
+
+# 中序遍历
+'''
+二叉搜索树中序遍历得到的值构成的序列一定是升序的。
+'''
+
+
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        stack, inorder = [], float('-inf')
+
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            # 如果中序遍历得到的节点的值小于等于前一个inorder，说明不是二叉搜索树
+            if root.val <= inorder:
+                return False
+            inorder = root.val
+            root = root.right
+
+        return True
