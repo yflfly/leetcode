@@ -30,6 +30,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
         def helper(node, lower, upper):
@@ -47,6 +49,7 @@ class Solution:
         lower = float('-inf')
         upper = float('inf')
         return helper(root, lower, upper)
+
 
 # 中序遍历
 '''
