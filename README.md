@@ -16,3 +16,4 @@
 [欢迎关注 CSDN](https://blog.csdn.net/yangfengling1023)<br>
 [大厂面试高频数据结构&算法题](https://zhuanlan.zhihu.com/p/158959549)<br>
 
+[各个类型题目的汇总](https://www.zhihu.com/question/35485418/answer/1656579627) <br>
