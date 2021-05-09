@@ -10,3 +10,6 @@ https://leetcode-cn.com/problemset/leetcode-top/
 
 初级算法
 https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x6w3ds/
+
+各类算法的题目汇总：
+https://www.zhihu.com/question/28580777/answer/1864209518
