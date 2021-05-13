@@ -12,7 +12,6 @@
 解释：出现在 s 中的数字只包含 [1] 。没有第二大的数字。
 '''
 
-
 class Solution:
     def secondHighest(self, s: str) -> int:
         res = []
