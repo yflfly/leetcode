@@ -16,6 +16,7 @@
 输出：0
 '''
 
+
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
         res = 0
