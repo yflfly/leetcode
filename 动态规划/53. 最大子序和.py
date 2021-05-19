@@ -32,3 +32,9 @@ class Solution:
 nums = [2, -1, 1, 2]
 a = Solution()
 print(a.maxSubArray(nums))
+
+'''
+复杂度分析：
+时间复杂度：O(n)，n为nums数组的长度，我们只需要遍历一遍数组即可求得答案
+空间复杂度：O(n)，我们需要定义一个n的dp数组进行存放变量
+'''
