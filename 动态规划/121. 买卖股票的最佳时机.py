@@ -39,7 +39,6 @@ class Solution:
                 min_ = prices[i]
         return max(dp)
 
-
 prices = [7, 1, 5, 3, 6, 4]
 dp = [0 for _ in prices]
 for i in range(1, len(prices)):
