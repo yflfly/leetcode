@@ -38,3 +38,10 @@ leetcode-53. 最大子序和
 
 公众号发表的文章：
 leetcode-53. 最大子序和
+leetcode-121. 买卖股票的最佳时机--动态规划
+leetcode- 验证二叉搜索树
+leetcode-剑指 Offer 11. 旋转数组的最小数字
+leetcode-和为K的子数组
+leetcode-删除排序数组中的重复项
+leetcode-剑指 Offer 03. 数组中重复的数字
+leetcode-1748. 唯一元素的和
