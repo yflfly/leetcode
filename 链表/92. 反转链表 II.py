@@ -41,3 +41,4 @@ class Solution:
         pre.next = temp2
         back.next = temp1
         return result.next
+
