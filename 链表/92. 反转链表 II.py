@@ -17,6 +17,7 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 class Solution:
     def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
         if not head:
@@ -41,4 +42,3 @@ class Solution:
         pre.next = temp2
         back.next = temp1
         return result.next
-
