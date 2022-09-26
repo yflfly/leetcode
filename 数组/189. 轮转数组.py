@@ -1,5 +1,5 @@
 '''
-旋转数组
+189. 轮转数组
 给定一个数组，将数组中的元素向右移动k个位置，其中k是非负数。
 进阶：
 尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。
@@ -54,4 +54,31 @@ class Solution:
 反转前半部分
 反转后半部分
 然后返回结果
+'''
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+
+        def reverse(i, j):
+            while i < j:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+                j -= 1
+            return
+
+        n = len(nums)
+        k %= n
+        reverse(0, n-1)
+        reverse(0, k-1)
+        reverse(k, n-1)
+'''
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        if k := (k % len(nums)):
+            nums[:k], nums[k:] = nums[-k:], nums[:-k]
 '''
