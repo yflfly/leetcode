@@ -8,7 +8,7 @@
 示例 2:
 输入: [1,2,3,4]
 输出: false
-示例 3:
+示例3:
 输入: [1,1,1,3,3,4,3,2,4,2]
 输出: true
 
@@ -25,3 +25,7 @@ class Solution:
             else:
                 dict1[each] = 1
         return False
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(set(nums)) != len(nums)
